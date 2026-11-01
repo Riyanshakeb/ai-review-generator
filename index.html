@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#171513">
+<meta name="description" content="Share your honest experience with Rare Crystal Salon.">
+<title>Rare Crystal Salon | Share Your Experience</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#201d19;--muted:#77716a;--gold:#c7a568;--cream:#f7f3ec;--line:#e8e0d4}*{box-sizing:border-box}body{margin:0;background:var(--cream);color:var(--ink);font-family:"DM Sans",sans-serif}
+.hero{background:linear-gradient(145deg,#171513,#30271d);color:white;padding:34px 22px 30px;text-align:center}.brand{font-family:"Playfair Display",serif;letter-spacing:2.8px;font-size:27px;color:#e4c78f}.subbrand{font-size:10px;letter-spacing:4px;margin-top:5px;color:#e7dfd2}.stars{color:#c49a4e;letter-spacing:3px;font-size:20px;margin-top:13px}
+.hero h1{font-family:"Playfair Display",serif;font-size:29px;font-weight:600;margin:30px 0 8px}.hero p{color:#e3dbcf;font-size:14px;line-height:1.6;margin:0 auto;max-width:330px}
+main{max-width:540px;margin:0 auto;padding:22px 17px 38px}.panel{background:white;border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:0 10px 35px #3227160d}.step{font-size:11px;font-weight:700;letter-spacing:1.5px;color:#9a7945;text-transform:uppercase}
+h2{font-family:"Playfair Display",serif;font-size:23px;margin:7px 0 18px}label{display:block;font-size:13px;font-weight:700;margin:18px 0 9px}
+select,textarea{width:100%;border:1px solid #ddd4c8;border-radius:11px;background:#fff;padding:13px 14px;font:14px "DM Sans",sans-serif;color:var(--ink);outline:none}select:focus,textarea:focus{border-color:var(--gold);box-shadow:0 0 0 3px #c7a56822}
+textarea{min-height:120px;resize:vertical;line-height:1.55}.hint{font-size:12px;color:var(--muted);line-height:1.5;margin-top:7px}.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{border:1px solid var(--line);background:#fff;padding:9px 12px;border-radius:999px;font-size:12px;cursor:pointer}.chip.active{background:#f3eadb;border-color:var(--gold);color:#76572a}
+button{width:100%;border:0;border-radius:11px;padding:14px 16px;font:700 14px "DM Sans",sans-serif;cursor:pointer}.primary{background:var(--ink);color:#f4d9a6;margin-top:20px}.primary:disabled{opacity:.55;cursor:wait}.secondary{background:#f4eee5;color:#4d3c25;border:1px solid #e6dac8;margin-top:10px}
+.result{display:none;margin-top:20px;border-top:1px solid var(--line);padding-top:18px}.result textarea{min-height:155px;background:#fcfaf6}.notice{font-size:12px;line-height:1.55;color:#6f675d;background:#f8f4ed;border-radius:10px;padding:12px;margin-top:14px}
+.status{font-size:13px;margin-top:12px;min-height:18px;color:#7b5422}footer{text-align:center;color:#8a8175;font-size:11px;padding:0 20px 28px;line-height:1.6}@media(min-width:600px){.hero{padding-top:44px}.hero h1{font-size:34px}main{padding-top:28px}}
+</style></head>
+<body>
+<header class="hero"><div class="brand">RARE CRYSTAL</div><div class="subbrand">SALON &amp; BEAUTY STUDIO</div><div class="stars" aria-label="decorative stars">★★★★★</div><h1>Your experience matters.</h1><p>Tell us what you loved about your visit. We'll help you put your genuine feedback into words.</p></header>
+<main><section class="panel"><div class="step">A little feedback goes a long way</div><h2>Write your Google review</h2>
+<form id="reviewForm">
+<label for="service">1. Which service did you receive?</label><select id="service" required><option value="">Choose a service</option><option>Haircut or styling</option><option>Hair spa</option><option>Hair colouring</option><option>Facial or skincare</option><option>Bridal makeup</option><option>Other salon service</option></select>
+<label>2. How was your experience?</label><div class="chips" id="toneChips"><button type="button" class="chip active" data-value="Excellent">Excellent</button><button type="button" class="chip" data-value="Very good">Very good</button><button type="button" class="chip" data-value="Good">Good</button><button type="button" class="chip" data-value="Average">Average</button><button type="button" class="chip" data-value="Not good">Not good</button></div>
+<label for="details">3. Tell us about your actual experience</label><textarea id="details" maxlength="1200" required placeholder="For example: The stylist listened carefully, the place was clean, and I liked the haircut..."></textarea><div class="hint">Mention anything you genuinely appreciated or think we could improve. Please don't include private information.</div>
+<label for="language">4. Review language</label><select id="language"><option>English</option><option>Hindi</option><option>Kannada</option></select>
+<button class="primary" id="generate" type="submit">✦ Create my review</button><div class="status" id="status" role="status" aria-live="polite"></div></form>
+<div class="result" id="result"><label for="reviewText">Your suggested review</label><textarea id="reviewText" maxlength="1800"></textarea><div class="hint">Read it carefully and edit anything that doesn't match your experience.</div><button class="secondary" id="copyBtn" type="button">Copy review</button><button class="primary" id="googleBtn" type="button">Continue to Google Reviews ↗</button><div class="notice">Your review is not posted automatically. Google will open separately, where you can sign in if needed, paste your review, choose your star rating and submit it yourself. Only share feedback that reflects your real visit.</div></div>
+</section></main><footer>Thank you for visiting Rare Crystal Salon.<br>Honest feedback helps us serve you better.</footer>
+<script>
+const GOOGLE_REVIEW_URL="https://search.google.com/local/writereview?placeid=ChIJQbB_AdTHzjsRuFa7U7psMWQ";let experience="Excellent";
+document.querySelectorAll(".chip").forEach(chip=>chip.addEventListener("click",()=>{document.querySelectorAll(".chip").forEach(x=>x.classList.remove("active"));chip.classList.add("active");experience=chip.dataset.value;}));
+const form=document.getElementById("reviewForm"),status=document.getElementById("status"),result=document.getElementById("result");
+form.addEventListener("submit",async event=>{event.preventDefault();const service=document.getElementById("service").value,details=document.getElementById("details").value.trim(),language=document.getElementById("language").value;if(!service||details.length<8){status.textContent="Please choose a service and add a little more detail.";return;}
+const btn=document.getElementById("generate");btn.disabled=true;btn.textContent="Creating your review…";status.textContent="";result.style.display="none";
+try{const response=await fetch("/api/generate",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({service,experience,details,language})});const data=await response.json();if(!response.ok)throw new Error(data.error||"Could not generate review. Please try again.");document.getElementById("reviewText").value=data.review;result.style.display="block";status.textContent="Your draft is ready. Please check it before posting.";result.scrollIntoView({behavior:"smooth",block:"nearest"});}
+catch(error){status.textContent=error.message;}finally{btn.disabled=false;btn.textContent="✦ Create my review";}});
+document.getElementById("copyBtn").addEventListener("click",async()=>{const text=document.getElementById("reviewText").value;try{await navigator.clipboard.writeText(text);status.textContent="Review copied. Continue to Google Reviews.";}catch{document.getElementById("reviewText").select();status.textContent="Select and copy your review."; }});
+document.getElementById("googleBtn").addEventListener("click",()=>window.open(GOOGLE_REVIEW_URL,"_blank","noopener"));
+</script></body></html>
