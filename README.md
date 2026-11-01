@@ -5,7 +5,7 @@ A mobile-first, QR-friendly Vercel website. Customers describe their genuine sal
 ## Deploy
 1. Import this GitHub repository into Vercel.
 2. In Vercel Project Settings → Environment Variables, add OPENAI_API_KEY with your secret OpenAI API key.
-3. Optionally set OPENAI_MODEL to a model enabled for your API account. The source defaults to gpt-6; change it if unavailable to your account.
+3. Optionally set OPENAI_MODEL to a model enabled for your API account. The source defaults to gpt-6-luna; change it if unavailable to your account.
 4. Redeploy after setting variables.
 5. Test the customer flow on a phone.
 
